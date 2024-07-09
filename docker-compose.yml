@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  voicestreamai:
+    image: voicestreamai:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8765:8765"
+    environment:
+      - DEBIAN_FRONTEND=${DEBIAN_FRONTEND}
+      - PYTHON_VERSION=${PYTHON_VERSION}
+      - NAME=${NAME}
+      - PYANNOTE_AUTH_TOKEN=${PYANNOTE_AUTH_TOKEN}
+    volumes:
+      - huggingface_models:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+volumes:
+  huggingface_models:
+    driver: local
