@@ -1,3 +1,8 @@
 docker compose down
-docker compose up --build -d
+docker compose -f docker-compose.yml \
+    -f docker-compose.gpu.yml \
+    up \
+    --build \
+    -d
+
 docker logs voicestreamai -f

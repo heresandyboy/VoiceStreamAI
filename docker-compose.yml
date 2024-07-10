@@ -16,13 +16,6 @@ services:
       - PYANNOTE_AUTH_TOKEN=${PYANNOTE_AUTH_TOKEN}
     volumes:
       - huggingface_models:/root/.cache/huggingface
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
 
 volumes:
   huggingface_models:
