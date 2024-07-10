@@ -269,3 +269,19 @@ function toggleBufferingStrategyPanel() {
         panel.classList.add('hidden');
     }
 }
+
+// Get references to the new elements
+const extractTextButton = document.querySelector('#extractTextButton');
+const plainTextOutput = document.querySelector('#plainTextOutput');
+
+// Add click event listener to the button
+extractTextButton.addEventListener('click', extractPlainText);
+
+// Function to extract plain text and display it
+function extractPlainText() {
+    // Get the text content from the transcription div
+    const plainText = transcriptionDiv.textContent;
+    
+    // Set the plain text to the output div
+    plainTextOutput.textContent = plainText;
+}

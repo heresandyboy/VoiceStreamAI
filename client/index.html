@@ -74,6 +74,22 @@
     .hidden {
       display: none;
     }
+    
+    #extractTextButton {
+      margin: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #plainTextOutput {
+        margin: 20px auto;
+        padding: 10px;
+        width: 80%;
+        min-height: 100px;
+        border: 1px solid #ddd;
+        background: white;
+    }
   </style>
   <script defer src='utils.js'></script>
 </head>
@@ -138,7 +154,10 @@
 </button>
 <button id="stopButton" disabled>Stop Streaming
 </button>
-<div id="transcription"></div>
+<div id="transcription" contenteditable="true"></div>
+<br/>
+<button id="extractTextButton">Extract Plain Text</button>
+<div id="plainTextOutput"></div>
 <br/>
 <div>WebSocket: <span id="webSocketStatus">Not Connected</span></div>
 <div>Detected Language: <span id="detected_language">Undefined</span></div>

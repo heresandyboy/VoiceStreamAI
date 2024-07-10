@@ -3,6 +3,7 @@ version: "3.8"
 services:
   voicestreamai:
     image: voicestreamai:latest
+    container_name: voicestreamai
     build:
       context: .
       dockerfile: Dockerfile
